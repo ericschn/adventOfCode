@@ -1,14 +1,14 @@
 import data4
-import datetime
+from datetime import datetime as DateTime, timedelta as TimeDelta
 
 data = data4.rawArr
 dateTimes = []
 
 # list of datetime objects
 for item in data:
-  itemTime = datetime.datetime.strptime(item[:16], "%Y-%m-%d %H:%M")
+  itemTime = DateTime.strptime(item[:16], "%Y-%m-%d %H:%M")
   if itemTime.hour > 0:
-    itemTime = itemTime.replace(hour=0, minute=0) + datetime.timedelta(days=1)
+    itemTime = itemTime.replace(hour=0, minute=0) + TimeDelta(days=1)
   dateTimes.append(itemTime)
 
 for i in range(len(dateTimes)):
@@ -29,3 +29,5 @@ for i in range(len(dateTimes)):
 # First find guard with most total minutes asleep
 
 # Second find the minute (0-59) guard is asleep the most
+
+# I think I have to build another matrix
