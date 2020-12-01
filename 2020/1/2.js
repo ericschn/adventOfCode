@@ -1,4 +1,9 @@
 // 2020 Day 1 part 2
+
+// Timing
+const { performance } = require('perf_hooks');
+const startTime = performance.now();
+
 const fs = require('fs');
 
 let input = fs.readFileSync('input.txt', 'utf-8').split("\n");
@@ -25,3 +30,6 @@ function find3Sums(inputArr) {
   }
   return -1;
 }
+
+// Timing
+console.log("Completed in: " + Math.floor(performance.now() - startTime) + "ms");
