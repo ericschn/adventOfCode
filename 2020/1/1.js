@@ -1,19 +1,26 @@
-// 2020 Day 1
-
+// 2020 Day 1 Part 1
 const fs = require('fs');
 
 let input = fs.readFileSync('input.txt', 'utf-8').split("\n");
 
-let result;
+let result = findSums(input);
 
-input.forEach(x => {
-  let sum = 2020 - parseInt(x);
-  input.forEach(y => {
-    if (sum == y) console.log(x * y);
-  })
-  if (input.indexOf(sum) > -1) {
-    // console.log(sum * x);
+console.log(result);
+
+/** Looks in the input array for 2 integers
+ * with the sum of 2020 and returns the product
+ * of those 2 integers.
+ * 
+ * @param {number[]} inputArr 
+ */
+function findSums(inputArr) {
+  for (let x of inputArr) {
+    let diff = 2020 - parseInt(x);
+    for (let y of inputArr) {
+      if (diff == y) {
+        return x * y;
+      }
+    }
   }
-})
-
-// console.log(input);
+  return -1;
+}

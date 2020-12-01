@@ -1,19 +1,27 @@
 // 2020 Day 1 part 2
-
 const fs = require('fs');
 
 let input = fs.readFileSync('input.txt', 'utf-8').split("\n");
 
-let result;
+let result = find3Sums(input);
 
-input.forEach(x => {
-  input.forEach(y => {
-    input.forEach(z => {
-      if ((parseInt(x) + parseInt(y) + parseInt(z)) == 2020) {
-        console.log(x * y * z);
+console.log(result);
+
+/** Looks in the input array for 3 integers
+ * with the sum of 2020 and returns the product
+ * of those 3 integers.
+ * 
+ * @param {number[]} inputArr 
+ */
+function find3Sums(inputArr) {
+  for (let x of inputArr) {
+    for (let y of inputArr) {
+      for (let z of inputArr) {
+        if ((parseInt(x) + parseInt(y) + parseInt(z)) == 2020) {
+          return (x * y * z);
+        }
       }
-    })
-  })
-})
-
-// console.log(input);
+    }
+  }
+  return -1;
+}
