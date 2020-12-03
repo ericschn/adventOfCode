@@ -4,9 +4,10 @@ let input = fs.readFileSync('input.txt', 'utf-8').split("\n");
 
 let counter = 0;
 let treeCount = 0;
+let lineLength = input[0].length;
 
 for (line of input) {
-  if (line[counter % 31] == '#') {
+  if (line[counter % lineLength] == '#') {
     treeCount++;
   }
   counter += 3;
