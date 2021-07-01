@@ -5,7 +5,8 @@ let input = fs.readFileSync('input.txt', 'utf-8').split(', ');
 // We are at 0,0 facing north
 let pos = [0,0];
 let dir = 400; // 0123 = north east south west
-// This doesn't work..... dang
+// Have to start at a high multiple of 4 since going
+// into negatives stops the module from working correctly
 
 // Loop over instructions
 
