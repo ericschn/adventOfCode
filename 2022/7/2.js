@@ -1,4 +1,4 @@
-// 2022 day 7 part 1
+// 2022 day 7 part 2
 
 const fs = require('fs');
 let input = fs.readFileSync('input.txt', 'utf-8').split('\n');
@@ -50,12 +50,15 @@ for (let line of input) {
   }
 }
 
-// Find all entries in result that are 100,000 or less
-let sum = 0;
-for (let size of result.values()) {
-  if (size <= 100000) {
-    sum += size;
+// Find how much needed to delete
+let toDelete = 30000000 - (70000000 - result.get('root'));
+let dirValues = [...result.values()].sort((a, b) => a - b);
+
+console.log('Need to delete: ' + toDelete);
+
+for (let val of dirValues) {
+  if (val >= toDelete) {
+    console.log(val);
+    break;
   }
 }
-
-console.log(sum);
