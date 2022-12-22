@@ -1,3 +1,5 @@
+// 2022 day 10 part 1
+
 const fs = require('fs');
 const input = fs.readFileSync('input.txt', 'utf-8').split('\n');
 
