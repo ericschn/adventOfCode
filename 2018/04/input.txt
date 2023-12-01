@@ -1,4 +1,4 @@
-raw="""[1518-09-14 00:54] wakes up
+[1518-09-14 00:54] wakes up
 [1518-04-15 23:58] Guard #373 begins shift
 [1518-07-25 00:53] wakes up
 [1518-07-04 00:45] wakes up
@@ -1264,36 +1264,4 @@ raw="""[1518-09-14 00:54] wakes up
 [1518-05-04 00:04] Guard #3229 begins shift
 [1518-07-09 00:38] falls asleep
 [1518-05-01 00:32] wakes up
-[1518-05-02 00:27] falls asleep"""
-
-# # TEST
-# raw="""[1518-11-01 00:00] Guard #10 begins shift
-# [1518-11-01 00:05] falls asleep
-# [1518-11-01 00:25] wakes up
-# [1518-11-01 00:30] falls asleep
-# [1518-11-01 00:55] wakes up
-# [1518-11-01 23:58] Guard #99 begins shift
-# [1518-11-02 00:40] falls asleep
-# [1518-11-02 00:50] wakes up
-# [1518-11-03 00:05] Guard #10 begins shift
-# [1518-11-03 00:24] falls asleep
-# [1518-11-03 00:29] wakes up
-# [1518-11-04 00:02] Guard #99 begins shift
-# [1518-11-04 00:36] falls asleep
-# [1518-11-04 00:46] wakes up
-# [1518-11-05 00:03] Guard #99 begins shift
-# [1518-11-05 00:45] falls asleep
-# [1518-11-05 00:55] wakes up"""
-
-# # TEST Month Wrapping
-# raw="""[1518-11-04 23:55] Guard #99 begins shift
-# [1518-11-05 00:45] falls asleep
-# [1518-11-05 00:55] wakes up"""
-
-raw = raw.replace("[", "")
-raw = raw.replace("]", "")
-
-# make it chronological
-rawArr = raw.split('\n')
-rawArr.sort()
-# print("\n".join(rawArr))
+[1518-05-02 00:27] falls asleep

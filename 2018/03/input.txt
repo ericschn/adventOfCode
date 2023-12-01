@@ -1,4 +1,4 @@
-raw = """#1 @ 12,548: 19x10
+#1 @ 12,548: 19x10
 #2 @ 939,145: 29x27
 #3 @ 115,603: 23x23
 #4 @ 293,741: 24x29
@@ -1370,32 +1370,4 @@ raw = """#1 @ 12,548: 19x10
 #1370 @ 734,476: 21x29
 #1371 @ 319,382: 17x27
 #1372 @ 174,589: 28x14
-#1373 @ 808,590: 13x18"""
-
-# # TEST
-# raw = """#1 @ 1,3: 4x4
-# #2 @ 3,1: 4x4
-# #3 @ 5,5: 2x2"""
-
-# Format:
-# [
-#  [[808, 590], [13, 18]],
-#  [[174, 589], [28, 14]]
-# ]
-
-# split into list of 1372 elements
-arr1 = raw.split("\n")
-
-# initialize result array
-result = []
-
-for x in arr1:
-  atIndex = x.index("@")
-  x = x.replace(x[:atIndex+2], "")
-  innerArr = x.split(": ")
-
-  coor = list(int(n) for n in innerArr[0].split(","))
-
-  size = list(int(m) for m in innerArr[1].split("x"))
-
-  result.append([coor, size])
+#1373 @ 808,590: 13x18

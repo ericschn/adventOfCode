@@ -1,4 +1,4 @@
-raw = """prtkqyluibmtcwqaezjmhgfndx
+prtkqyluibmtcwqaezjmhgfndx
 prtkqylusbsmcwvaezjmhgfndt
 prgkqyluibsocwvamzjmhgkndx
 prjkqyluibsocwvahzjmhgfnsx
@@ -247,6 +247,4 @@ prtkqyluibsocqbaezomhgfndx
 prtihyluibsocwvaeujmhgfndx
 prtuquruibsocwvaezjmhgfndx
 prtkqyloibsocwvaeztmhifndx
-ertuqyluibsocwvaeajmhgfndx"""
-
-strArr = raw.split("\n")
+ertuqyluibsocwvaeajmhgfndx
