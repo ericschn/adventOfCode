@@ -6,8 +6,7 @@ let input = try String(contentsOfFile: "./input.txt")
 
 let cards = input
   .map { trimCardPrefix($0) }
-  .map { $0.components(separatedBy: "|")
-  .map { $0.trimmingCharacters(in: .whitespaces) }
+  .map { $0.components(separatedBy: " | ")
   .map { $0.components(separatedBy: " ")} }
 
 var result: Double = 0
