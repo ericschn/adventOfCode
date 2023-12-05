@@ -1,26 +1,5 @@
 import Foundation
 
-let input = try String(contentsOfFile: "./input.txt")
-  .replacingOccurrences(of: "  ", with: " ")
-  .components(separatedBy: "\n")
-
-var cards: [Card] = []
-
-for line in input {
-  cards.append(Card(line))
-}
-
-for (i, card) in cards.enumerated() {
-  if (card.wins > 0) {
-    for j in 1...card.wins {
-      cards[i + j].qty += card.qty
-    }
-  }
-}
-
-let result: Int = cards.reduce(0) { $0 + $1.qty }
-print(result)
-
 class Card {
   var qty: Int = 1
   var wins: Int = 0
@@ -40,5 +19,26 @@ class Card {
       }
     }
   }
-  
 }
+
+func updateCardsQty(_ cards: [Card]) -> Void {
+  for (i, card) in cards.enumerated() {
+    if (card.wins > 0) {
+      for j in 1...card.wins {
+        cards[i + j].qty += card.qty
+      }
+    }
+  }
+}
+
+let input = try String(contentsOfFile: "./input.txt")
+  .replacingOccurrences(of: "  ", with: " ")
+  .components(separatedBy: "\n")
+
+var cards: [Card] = []
+for line in input {
+  cards.append(Card(line))
+}
+
+updateCardsQty(cards)
+print(cards.reduce(0) { $0 + $1.qty })
