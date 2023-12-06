@@ -38,29 +38,25 @@ func createCategories(data: [String]) -> [Category] {
 
 let input = try String(contentsOfFile: "./input.txt")
   .components(separatedBy: "\n")
-
-// lets do this top to bottom first
-
-// get all the seeds we need to check
 let seeds: [Int] = input[0].components(separatedBy: " ")
   .map { Int($0) ?? -1 }
   .filter { $0 != -1 }
-
 let categories = createCategories(data: input)
+var seedLocations: [Int] = []
 
-// for each seed, try to find in source range
-// if found, get distance from range start
-// get corresponding int from destination range
+for seed in seeds {
+  var currentNum = -1;
+  for category in categories {
+    if currentNum == -1 { currentNum = seed }
+    for range in category.ranges {
+      if range.0 ~= currentNum {
+        let distance = range.0.lowerBound.distance(to: currentNum)
+        currentNum = range.1.lowerBound.advanced(by: distance)
+        break
+      }
+    }
+  }
+  seedLocations.append(currentNum)
+}
 
-// continue for each category until location is found
-// store location in new array
-
-// after all seeds checked, return seed number with 
-// lowest location
-
-
-// DEBUG
-
-
-  print(categories[0].title)
-  print(categories[0].ranges)
+print(seedLocations.min() ?? -1)
