@@ -2,7 +2,7 @@ import Foundation
 
 class Category {
   var title: String
-  var ranges: [(ClosedRange<Int>, ClosedRange<Int>)] = [(0...0, 0...0)]
+  var ranges: [(ClosedRange<Int>, ClosedRange<Int>)] = []
 
   init(title: String, numsArr: [[Int]]) {
     self.title = title
@@ -14,7 +14,7 @@ class Category {
   }
 }
 
-func createCategories(data: [String]) -> [Category] {
+func parseCategories(data: [String]) -> [Category] {
   var categoryArr: [Category] = []
   var currentCategory: [[Int]] = []
   var currentTitle: String = ""
@@ -41,7 +41,7 @@ let input = try String(contentsOfFile: "./input.txt")
 let seeds: [Int] = input[0].components(separatedBy: " ")
   .map { Int($0) ?? -1 }
   .filter { $0 != -1 }
-let categories = createCategories(data: input)
+let categories = parseCategories(data: input)
 var seedLocations: [Int] = []
 
 for seed in seeds {
